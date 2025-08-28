@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Volunteer-Club — Coming Soon</title>
-  <meta name="description" content="Volunteer-Club makes volunteering social, easy, and rewarding. Find verified opportunities by time and neighborhood, join with friends, and earn rewards. Launching in NYC soon." />
+  <meta name="description" content="Volunteer-Club makes volunteering social, easy, and rewarding. Doing good feels good. Find verified opportunities, join with friends, and earn rewards. Launching in NYC soon." />
   <meta property="og:title" content="Volunteer-Club — Coming Soon" />
-  <meta property="og:description" content="Make friends while giving back. Quick filters, group sign-ups, and rewards for consistent impact." />
+  <meta property="og:description" content="Doing good feels good. Make friends while giving back with group sign-ups, quick filters, and rewards." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#111827" />
   <link rel="icon" href="/favicon.ico" />
@@ -36,8 +36,17 @@
     <main class="px-6 pb-24 pt-10 max-w-6xl mx-auto">
       <section class="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">Volunteering that’s <span class="text-emerald-400">social</span>, easy, and rewarding.</h1>
-          <p class="mt-5 text-lg text-neutral-300 max-w-xl">Volunteer-Club matches you with verified, high-quality opportunities by time, neighborhood, and cause. Come solo or bring friends—earn streaks, badges, and partner perks as you give back. <strong>Launching in NYC soon.</strong></p>
+          <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 text-emerald-300 px-3 py-1 text-xs font-semibold ring-1 ring-emerald-500/30">
+            Doing good feels good
+          </div>
+          <h1 class="mt-3 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            Volunteering that’s <span class="text-emerald-400">social</span>, easy, and rewarding.
+          </h1>
+          <p class="mt-5 text-lg text-neutral-300 max-w-xl">
+            Volunteer-Club matches you with verified, high-quality opportunities by time, neighborhood, and cause.
+            Come solo or bring friends—earn streaks, badges, and partner perks as you give back.
+            <strong>Launching in NYC soon.</strong>
+          </p>
           <form id="waitlistForm" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl" action="https://formspree.io/f/REPLACE_ME" method="POST">
             <label for="email" class="sr-only">Email</label>
             <input required id="email" name="email" type="email" placeholder="Enter your email" class="flex-1 rounded-xl bg-neutral-900/80 ring-1 ring-neutral-800 px-4 py-3 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
@@ -47,18 +56,36 @@
           <p id="formMsg" class="mt-3 text-sm text-neutral-400"></p>
           <p class="mt-6 text-xs text-neutral-500">By joining, you agree to receive occasional product updates. You can unsubscribe anytime.</p>
         </div>
+
         <div class="rounded-3xl bg-neutral-900/50 ring-1 ring-neutral-800 p-6">
           <ul class="space-y-4">
-            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span><div><span class="font-semibold">Make friends while helping</span><p class="text-neutral-300">Join public groups or create your own. See who’s going and meet people who care about the same causes.</p></div></li>
-            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span><div><span class="font-semibold">Verified opportunities</span><p class="text-neutral-300">Listings are vetted with clear expectations, accessibility notes, and what to bring.</p></div></li>
-            <li class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span><div><span class="font-semibold">Rewards & streaks</span><p class="text-neutral-300">Earn streaks, badges, and partner perks for consistent impact. Track your hours automatically.</p></div></li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+              <div><span class="font-semibold">Make friends while helping</span>
+                <p class="text-neutral-300">Join public groups or create your own. See who’s going and meet people who care about the same causes.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+              <div><span class="font-semibold">Verified opportunities</span>
+                <p class="text-neutral-300">Listings are vetted with clear expectations, accessibility notes, and what to bring.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+              <div><span class="font-semibold">Rewards & streaks</span>
+                <p class="text-neutral-300">Earn streaks, badges, and partner perks for consistent impact. Track your hours automatically.</p>
+              </div>
+            </li>
           </ul>
         </div>
       </section>
 
       <section id="mission" class="mt-20">
         <h2 class="text-2xl font-bold">Our Mission</h2>
-        <p class="mt-3 max-w-3xl text-neutral-300">To make it simple and social to do good—connecting people with nearby, verified opportunities and enabling them to show up with friends, build community, and get rewarded for consistent impact.</p>
+        <p class="mt-3 max-w-3xl text-neutral-300">
+          To make it simple and social to do good—connecting people with nearby, verified opportunities and enabling them to show up with friends, build community, and get rewarded for consistent impact. Because doing good feels good.
+        </p>
       </section>
 
       <footer class="mt-24 border-t border-neutral-800 pt-8 text-sm text-neutral-500 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -84,7 +111,7 @@
         const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
         if (res.ok) {
           form.reset();
-          msg.textContent = 'Thanks! You\'re on the list.';
+          msg.textContent = "Thanks! You're on the list.";
         } else {
           msg.textContent = 'Hmm, that did not go through. Try again?';
         }
@@ -95,4 +122,5 @@
   </script>
 </body>
 </html>
+
 
