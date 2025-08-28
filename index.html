@@ -90,4 +90,67 @@
                 <p class="text-neutral-300">Listings are vetted with clear expectations, accessibility notes, and what to bring.</p>
               </div>
             </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+              <div><span class="font-semibold">Rewards & streaks</span>
+                <p class="text-neutral-300">Earn streaks, badges, and partner perks for consistent impact. Track your hours automatically.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="mission" class="mt-20">
+        <h2 class="text-2xl font-bold">Our Mission</h2>
+        <p class="mt-3 max-w-3xl text-neutral-300">
+          To make it simple and social to do good—connecting people with nearby, verified opportunities and enabling them to show up with friends, build community, and get rewarded for consistent impact. Because doing good feels good.
+        </p>
+      </section>
+
+      <footer class="mt-24 border-t border-neutral-800 pt-8 text-sm text-neutral-500 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <span>© <span id="year"></span> Volunteer-Club</span>
+        <a href="#" class="hover:text-neutral-300">Privacy</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // fill UTM params if present
+    (function () {
+      const qs = new URLSearchParams(location.search);
+      ['utm_source','utm_medium','utm_campaign'].forEach(k => {
+        const el = document.getElementById(k);
+        if (el && qs.get(k)) el.value = qs.get(k);
+      });
+    })();
+
+    // iframe completion handler
+    (function () {
+      const iframe = document.getElementById('hidden_iframe');
+      const msg    = document.getElementById('formMsg');
+      const form   = document.getElementById('waitlistForm');
+      const btn    = document.getElementById('submitBtn');
+
+      window._submitted = false;
+      form.addEventListener('submit', () => {
+        btn.disabled = true;
+        btn.textContent = 'Submitting…';
+        msg.textContent = '';
+      });
+
+      iframe.addEventListener('load', () => {
+        if (!window._submitted) return; // ignore initial iframe load
+        window._submitted = false;
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = 'Join waitlist';
+        msg.textContent = "Thanks! You're on the list.";
+      });
+    })();
+  </script>
+</body>
+</html>
 
