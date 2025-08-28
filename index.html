@@ -48,10 +48,10 @@
             <strong>Launching in NYC soon.</strong>
           </p>
 
-          <!-- Hidden iframe technique: avoids CORS, keeps user on page -->
+          <!-- Google Apps Script form (iframe technique to avoid CORS) -->
           <form id="waitlistForm"
                 class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl"
-                action="https://script.google.com/macros/s/AKfycbwwvYkgjG1gR9HKe4EbYifu95b2qk4k6HHqTKIJjSd4zSeRuzcIYGY9rZdnJfAb60CQWg/exec"
+                action="https://script.google.com/macros/s/AKfycbxFT9A5nUC5sEbCtoU1iiv4rouee0dNf_rQj_A149gKRZNag1EAFNzYBFxRurewMDHwwA/exec"
                 method="POST"
                 target="hidden_iframe"
                 onsubmit="window._submitted=true;">
@@ -121,35 +121,4 @@
     // fill UTM params if present
     (function () {
       const qs = new URLSearchParams(location.search);
-      ['utm_source','utm_medium','utm_campaign'].forEach(k => {
-        const el = document.getElementById(k);
-        if (el && qs.get(k)) el.value = qs.get(k);
-      });
-    })();
-
-    // iframe completion handler
-    (function () {
-      const iframe = document.getElementById('hidden_iframe');
-      const msg    = document.getElementById('formMsg');
-      const form   = document.getElementById('waitlistForm');
-      const btn    = document.getElementById('submitBtn');
-
-      window._submitted = false;
-      form.addEventListener('submit', () => {
-        btn.disabled = true;
-        btn.textContent = 'Submitting…';
-        msg.textContent = '';
-      });
-
-      iframe.addEventListener('load', () => {
-        if (!window._submitted) return; // ignore initial iframe load
-        window._submitted = false;
-        form.reset();
-        btn.disabled = false;
-        btn.textContent = 'Join waitlist';
-        msg.textContent = "Thanks! You're on the list.";
-      });
-    })();
-  </script>
-</body>
-</html>
+      ['utm]()
