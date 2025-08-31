@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Volunteer-Club — Coming Soon</title>
-  <meta name="description" content="Volunteer-Club makes volunteering social, easy, and rewarding. Doing good feels good. Find verified opportunities, join with friends, and earn rewards. Launching in NYC soon." />
+  <meta name="description" content="Volunteer-Club makes volunteering simple, social, and rewarding. Doing good feels good. Find opportunities to give back, build community, make friends, and enjoy rewards. Launching in NYC soon." />
   <meta property="og:title" content="Volunteer-Club — Coming Soon" />
-  <meta property="og:description" content="Doing good feels good. Make friends while giving back with group sign-ups, quick filters, and rewards." />
+  <meta property="og:description" content="Volunteering made simple, social, and rewarding. Make friends, build community, and get perks for giving back." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#111827" />
   <link rel="icon" href="/favicon.ico" />
@@ -39,15 +39,18 @@
           <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 text-emerald-300 px-3 py-1 text-xs font-semibold ring-1 ring-emerald-500/30">
             Doing good feels good
           </div>
+
+          <!-- 🔥 Updated Header -->
           <h1 class="mt-3 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-            Volunteering that’s <span class="text-emerald-400">social</span>, easy, and rewarding.
+            Volunteering made <span class="text-emerald-400">simple</span>, social, and rewarding.
           </h1>
+
           <p class="mt-5 text-lg text-neutral-300 max-w-xl">
             Volunteer-Club makes it simple to give back to your community — while building community, creating shared experiences, and enjoying rewards for showing up.
             <strong>Launching in NYC soon.</strong>
           </p>
 
-          <!-- Google Apps Script form (iframe technique to avoid CORS) -->
+          <!-- Google Apps Script form -->
           <form id="waitlistForm"
                 class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl"
                 action="https://script.google.com/macros/s/AKfycbwzHVy-yLpkTQN5O56YydSHm8yNEmq-3djGSof_4LeEfX9yWATER3qo1jWfFUXZ6ySgHg/exec"
@@ -111,45 +114,5 @@
         <a href="#" class="hover:text-neutral-300">Privacy</a>
       </footer>
     </main>
-  </div>
 
-  <script>
-    // dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // fill UTM params if present
-    (function () {
-      const qs = new URLSearchParams(location.search);
-      ['utm_source','utm_medium','utm_campaign'].forEach(k => {
-        const el = document.getElementById(k);
-        if (el && qs.get(k)) el.value = qs.get(k);
-      });
-    })();
-
-    // iframe completion handler
-    (function () {
-      const iframe = document.getElementById('hidden_iframe');
-      const msg    = document.getElementById('formMsg');
-      const form   = document.getElementById('waitlistForm');
-      const btn    = document.getElementById('submitBtn');
-
-      window._submitted = false;
-      form.addEventListener('submit', () => {
-        btn.disabled = true;
-        btn.textContent = 'Submitting…';
-        msg.textContent = '';
-      });
-
-      iframe.addEventListener('load', () => {
-        if (!window._submitted) return; // ignore initial iframe load
-        window._submitted = false;
-        form.reset();
-        btn.disabled = false;
-        btn.textContent = 'Join waitlist';
-        msg.textContent = "Thanks! You're on the list.";
-      });
-    })();
-  </script>
-</body>
-</html>
 
